@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        body {
+            background-image: url('static/1.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .navbar {
+            transition: background 0.5s ease-in-out;
+        }
+        .navbar:hover {
+            background: #222;
+        }
+        .container {
+            background: linear-gradient(90deg, #4a90e2, #67b26f);
+            padding: 50px;
+            width: 40%;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .btn-success {
+            background: #000;
+            border: none;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-success:hover {
+            background: #333;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg" style="background:#000;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/" style="text-transform: capitalize; font-size: 25px; color: #FFF;">
+      Alzheimer's Disease Prediction
+    </a>
+    <div class="ml-auto">
+        <a href="/" style="font-size: 18px; color: #FFF;">Register</a> &nbsp;
+        <a href="/login" style="font-size: 18px; color: #FFF;">Login</a> &nbsp;
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5" data-aos="fade-up">
+    {% if error_message %}
+        <div class="alert alert-danger"><strong>{{ error_message }}</strong></div>
+    {% endif %}
+    <h2 class="mt-5 mb-4">User Login</h2>
+    <form action="/login" method="post">
+        <div class="form-group">
+            <label for="login_username">Username</label>
+            <input type="text" class="form-control" id="login_username" name="login_username" required>
+        </div>
+        <div class="form-group">
+            <label for="login_password">Password</label>
+            <input type="password" class="form-control" id="login_password" name="login_password" required>
+        </div>
+        <button type="submit" class="btn btn-success">Login</button>
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000, // Animation duration
+        easing: 'ease-in-out', // Smooth transition
+    });
+</script>
+
+</body>
+</html>
